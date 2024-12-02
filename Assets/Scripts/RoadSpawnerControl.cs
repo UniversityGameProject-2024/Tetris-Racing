@@ -24,7 +24,6 @@ public class RoadSpawnerControl : MonoBehaviour
             GameObject newObject = Instantiate(prefabToSpawn.gameObject, transform.position, Quaternion.identity);
             newObject.GetComponent<RoadControl>().velocity = velocityOfSpawnedObject;
             await Awaitable.WaitForSecondsAsync(secondsBetweenSpawns);
-     
        }
     }
 }

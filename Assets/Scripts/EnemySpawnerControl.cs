@@ -11,8 +11,6 @@ public class EnemySpawnerControl : MonoBehaviour
     [SerializeField] GameObject prefabToSpawn;
     [SerializeField] float minVelocityOfSpawnedObject;
     [SerializeField] float secondsBetweenSpawns = 5f;
-
-    
     const int MIN_OFFSET_X = -5;
     const int MAX_OFFSET_X = 6;
 
@@ -38,7 +36,6 @@ public class EnemySpawnerControl : MonoBehaviour
             int randomOffsetVelocity = Random.Range(MIN_OFFSET_VELOCITY, MAX_OFFSET_VELOCITY);
             newObject.GetComponent<EnemyControl>().velocity = minVelocityOfSpawnedObject + randomOffsetVelocity;
             await Awaitable.WaitForSecondsAsync(secondsBetweenSpawns);
-     
        }
     }
 }

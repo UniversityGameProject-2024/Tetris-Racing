@@ -11,21 +11,10 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float speed = 10f;
     private bool disableMoveRight = false;
     private bool disableMoveLeft = false;
-
-    [SerializeField] 
-    public int lives;
-    
-
-    [SerializeField] 
-    public TextMeshProUGUI textLives;
-
-
+    [SerializeField] public int lives;
+    [SerializeField] public TextMeshProUGUI textLives;
     [SerializeField] 
     InputAction move = new InputAction(type: InputActionType.Value, expectedControlType: nameof(Vector2));
-
-
-
-
     void OnEnable()
     {
         move.Enable();
@@ -35,13 +24,10 @@ public class PlayerControl : MonoBehaviour
     {
         move.Disable();
     }
-
     void Start()
     {
         textLives.text = $"Lives: {lives}";
     }
-
-
     void Update()
     {
         Vector2 moveDirection = move.ReadValue<Vector2>();
@@ -60,8 +46,6 @@ public class PlayerControl : MonoBehaviour
             // Disable moving to the left
             movementVector = new Vector3(0, moveDirection.y, 0) * speed * Time.deltaTime;
         }
-
-
         transform.position += movementVector;
         //transform.Translate(movementVector);
         // NOTE: "Translate(movementVector)" uses relative coordinates - 
@@ -79,13 +63,11 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("Palyer collided with Road Border Right");
             disableMoveRight = true;
         }
-        
         if (other.gameObject.name == "Road Border Left")
         {
             Debug.Log("Palyer collided with Road Border Left");
             disableMoveLeft = true;
         }
-
         if (other.gameObject.name == "Enemy(Clone)")
         {
             Debug.Log("Palyer collided with Enemy");
