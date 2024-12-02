@@ -36,6 +36,6 @@ public class EnemySpawnerControl : MonoBehaviour
             int randomOffsetVelocity = Random.Range(MIN_OFFSET_VELOCITY, MAX_OFFSET_VELOCITY);
             newObject.GetComponent<EnemyControl>().velocity = minVelocityOfSpawnedObject + randomOffsetVelocity;
             await Awaitable.WaitForSecondsAsync(secondsBetweenSpawns);
-       }
+        }
     }
 }

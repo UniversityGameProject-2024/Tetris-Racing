@@ -13,8 +13,7 @@ public class PlayerControl : MonoBehaviour
     private bool disableMoveLeft = false;
     [SerializeField] public int lives;
     [SerializeField] public TextMeshProUGUI textLives;
-    [SerializeField] 
-    InputAction move = new InputAction(type: InputActionType.Value, expectedControlType: nameof(Vector2));
+    [SerializeField] InputAction move = new InputAction(type: InputActionType.Value, expectedControlType: nameof(Vector2));
     void OnEnable()
     {
         move.Enable();
